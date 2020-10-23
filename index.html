@@ -1,0 +1,868 @@
+
+<style>
+  body{
+background-color: white;
+  }
+
+  @font-face {
+     font-family: "OpenSans-Regular";
+     src: url("http://embed.eltiempo.digital/maquetacion/maquillajes_xalok/el_tiempo/2018/02/las_10_mejores_jugadas/assets//fonts/OpenSans-Regular.ttf");
+}
+ @font-face {
+     font-family: 'PT Sans Narrow', sans-serif;
+     src: url("http://embed.eltiempo.digital/maquetacion/maquillajes_xalok/el_tiempo/2018/02/las_10_mejores_jugadas/assets/./fonts/Kankin.otf");
+}
+ @font-face {
+     font-family: "Lakeshore";
+     src: url("http://embed.eltiempo.digital/maquetacion/maquillajes_xalok/el_tiempo/2018/02/las_10_mejores_jugadas/assets//fonts/Lakeshore-Regular.otf");
+}
+ #juego_de_parejas {
+     position: relative;
+     width: 60%;
+     margin: 0 auto;
+     overflow: hidden;
+
+}
+ #juego_de_parejas #contenedor_juego {
+     margin: auto;
+     background-repeat: no-repeat;
+}
+ #juego_de_parejas #contenedor_juego #cabecera_juego {
+     margin-bottom: 20px;
+}
+ #juego_de_parejas #contenedor_juego #cabecera_juego #imagen_juego {
+     margin-top: 85px;
+}
+ #juego_de_parejas #contenedor_juego #cabecera_juego p {
+     width: 600px;
+     margin: 0px 0px 25px 0px;
+     font-family: "OpenSans-Regular";
+     color: #000;
+     font-size: 20px;
+     font-weight: 300;
+}
+ #juego_de_parejas #contenedor_juego #cabecera_juego #tiempo_juego {
+     font-family: 'PT Sans Narrow', sans-serif;
+     color: #000;
+     font-size: 20px;
+     font-weight: 600;
+}
+ #juego_de_parejas #contenedor_juego #cabecera_juego span {
+     font-family: 'PT Sans Narrow', sans-serif;
+     color: #000;
+     font-size: 12px;
+     margin-left: 5px;
+}
+ #juego_de_parejas #contenedor_juego #tablero_juego {
+     margin: auto;
+     width: 100%;
+     height: 520px;
+}
+ #juego_de_parejas #contenedor_juego #tablero_juego .casilla {
+     background-color: rgb(42, 83, 136);
+     background-size: contain;
+     border-radius: 8px;
+     cursor: pointer;
+     float: left;
+     height: 110px;
+     margin: 15px;
+     width: 110px;
+}
+ #juego_de_parejas #contenedor_juego #tablero_juego .acertado {
+     box-shadow: 0 0 6px black;
+     box-sizing: border-box;
+     pointer-events: none !important;
+}
+ #juego_de_parejas #panel_resultados {
+     background-color: white;
+     bottom: 0px;
+     display: none;
+     left: 0px;
+     overflow: auto;
+     position: absolute;
+     top: 0;
+     width: 100%;
+}
+ #juego_de_parejas #panel_resultados .label_tiempo {
+     font-family: 'PT Sans Narrow', sans-serif;
+     color: #000;
+     font-size: 27px;
+     line-height: 26px;
+}
+ #juego_de_parejas #panel_resultados .tiempo_final {
+     color: #f15b5b;
+     font-family: 'PT Sans Narrow', sans-serif;
+     font-size: 48px;
+     font-weight: 600;
+}
+ #juego_de_parejas #panel_resultados hr {
+     border-color: #f15b5b;
+     max-width: 70%;
+}
+ #juego_de_parejas #panel_resultados #resultados {
+     padding-top: 80px;
+     text-align: center;
+}
+ #juego_de_parejas #panel_resultados #resultados p {
+     font-family: 'PT Sans Narrow', sans-serif;
+     color: #f15b5b;
+     font-size: 22px;
+}
+ #juego_de_parejas #panel_resultados #resultados p.flecha {
+     cursor: pointer;
+     margin: 0;
+     user-select: none;
+}
+ #juego_de_parejas #panel_resultados #resultados .btn_jugada {
+     margin-right: 15px;
+     font-family: 'PT Sans Narrow', sans-serif;
+     color: #000;
+     font-size: 24px;
+     padding: 10px 10px 5px 10px;
+     border: 1px solid #000;
+     line-height: 48px;
+}
+ #juego_de_parejas #panel_resultados #resultados .btn_jugada:hover {
+     background-color: #f15b5b;
+     color: #242424;
+     border: 1px solid #f15b5b;
+     cursor: pointer;
+}
+ #juego_de_parejas #panel_resultados #resultados #btn_reiniciar {
+     border: 3px solid #f15b5b;
+     color: #f15b5b;
+     font-family: 'PT Sans Narrow', sans-serif;
+     font-size: 24px;
+     font-weight: 600;
+     margin-right: 15px;
+     padding: 10px 10px 5px 10px;
+}
+ #juego_de_parejas #panel_resultados #resultados #btn_reiniciar:hover {
+     background-color: #f15b5b;
+     color: #fff;
+     cursor: pointer;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada {
+     display: none;
+     padding-top: 80px;
+     text-align: center;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada .inf_jugada {
+     position: relative;
+     width: 500px;
+     height: 200px;
+     margin: auto;
+     text-align: left;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada .inf_jugada label {
+     padding-left: 200px;
+     font-family: "Lakeshore";
+     font-size: 114px;
+     color: #f15b5b;
+     line-height: 60px;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada .inf_jugada p {
+     padding-left: 200px;
+     font-family: "OpenSans-Regular";
+     font-size: 13px;
+     line-height: 17px;
+     color: #000;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada .inf_jugada img {
+     position: absolute;
+     top: -80px;
+     left: 30px;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_01 img {
+     top: -50px;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_02 img {
+     left: -10px;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_03 img {
+     left: 10px;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_04 img {
+     left: -40px;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_05 img {
+     left: -10px;
+     top: -50px;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_06 img {
+     left: -10px;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_07 img {
+     left: -10px;
+     top: -60px;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_08 img {
+     left: -25px;
+     top: -100px;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_09 img {
+     left: -10px;
+     top: -65px;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_10 img {
+     left: 40px;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada .btn_inf {
+     width: 130px;
+     margin-top: 50px;
+     margin-right: 15px;
+     font-family: 'PT Sans Narrow', sans-serif;
+     color: #f15b5b;
+     font-size: 20px;
+     padding: 10px 10px 5px 10px;
+     border: 3px solid #f15b5b;
+     box-shadow: 7px 7px #f15b5b;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada .btn_inf:hover {
+     background-color: #f15b5b;
+     color: #242424;
+     cursor: pointer;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada #btn_volver, #juego_de_parejas #panel_resultados #infografia_jugada #btn_ver_inf_jugada {
+     margin-top: unset;
+     padding: 5px 5px 0px 5px;
+     font-size: 14px;
+     display: inline-block;
+     vertical-align: middle;
+}
+ #juego_de_parejas #panel_resultados #infografia_jugada #btn_volver {
+     padding: 9px 10px 5px 10px;
+     font-size: 20px;
+}
+ #juego_de_parejas #panel_resultados #compartir_redes {
+     margin-top: 70px;
+     text-align: center;
+}
+ #juego_de_parejas #panel_resultados #compartir_redes #btn_compartir_facebook {
+     display: inline-block;
+     width: 42px;
+     height: 40px;
+     background: url(../images/compartir_redes.png) 0px 0px;
+     cursor: pointer;
+}
+ #juego_de_parejas #panel_resultados #compartir_redes #btn_compartir_facebook:hover {
+     background: url(../images/compartir_redes.png) -42px 0px;
+}
+ #juego_de_parejas #panel_resultados #compartir_redes #btn_compartir_twitter {
+     display: inline-block;
+     width: 42px;
+     height: 40px;
+     margin-left: 15px;
+     background: url(../images/compartir_redes.png) 0px -43px;
+     cursor: pointer;
+}
+ #juego_de_parejas #panel_resultados #compartir_redes #btn_compartir_twitter:hover {
+     background: url(../images/compartir_redes.png) -48px -43px;
+}
+ #juego_de_parejas #panel_resultados #compartir_redes label {
+     display: block;
+     margin-top: 10px;
+     font-family: 'PT Sans Narrow', sans-serif;
+     font-size: 20px;
+     color: #000;
+}
+#juego_de_parejas #panel_resultados #resultados .preguntas {
+    height: 50vh;
+    overflow: auto;
+    padding-top: 20px;
+}
+#juego_de_parejas #panel_resultados #resultados table {
+    margin: 0 auto;
+    max-width: 65%;
+    text-align: center;
+}
+#juego_de_parejas #panel_resultados #resultados table tr td {
+    border-bottom: 1px solid rgba(241,91,91,0.673);
+    padding: 10px 0;
+}
+#juego_de_parejas #panel_resultados #resultados table td:first-child {
+    width: 145px;
+}
+#juego_de_parejas #panel_resultados #resultados table p {
+    margin: 5px 0;
+    font-family: "OpenSans-Regular";
+    color: #757575;
+    font-size: 15px;
+    font-weight: 300;
+}
+#juego_de_parejas #panel_resultados #resultados table b {
+    font-family: "OpenSans-Regular";
+    color: #000000;
+    font-size: 15px;
+}
+#juego_de_parejas #panel_resultados #resultados table img {
+    display: inline-block;
+    height: auto;
+    margin: 5px 0;
+    max-width: 60px;
+}
+ @media only screen and (max-width: 767px) {
+    #juego_de_parejas #panel_resultados hr {
+        max-width: 90%;
+    }
+    #juego_de_parejas #panel_resultados #resultados .preguntas {
+        padding-top: 0;
+    }
+    #juego_de_parejas #panel_resultados #resultados table {
+        max-width: 85%;
+    }
+    #juego_de_parejas #panel_resultados #resultados table td:first-child {
+        width: auto;
+    }
+     #juego_de_parejas {
+         width: 100vw;
+    }
+     #juego_de_parejas #contenedor_juego {
+         width: 100%;
+         height: 850px;
+         background-image: unset;
+    }
+     #juego_de_parejas #contenedor_juego #cabecera_juego {
+         width: 100%;
+    }
+     #juego_de_parejas #contenedor_juego #cabecera_juego #imagen_juego {
+         width: 212px;
+         margin-top: 35px;
+    }
+     #juego_de_parejas #contenedor_juego #cabecera_juego p {
+         width: 262px;
+         font-size: 14px;
+    }
+     #juego_de_parejas #contenedor_juego #tablero_juego {
+         width: 260px;
+    }
+     #juego_de_parejas #contenedor_juego #tablero_juego .casilla {
+         width: 66px;
+         height: 60px;
+         margin: 10px;
+         background-position: center;
+         background-repeat: no-repeat;
+    }
+     #juego_de_parejas #contenedor_juego #tablero_juego .acertado {
+         border: 2px solid #000;
+    }
+     #juego_de_parejas #panel_resultados {
+         height: 850px;
+         top: 0px;
+    }
+     #juego_de_parejas #panel_resultados hr {
+         width: auto;
+         margin-bottom: 30px;
+    }
+     #juego_de_parejas #panel_resultados .label_tiempo {
+         display: block;
+    }
+     #juego_de_parejas #panel_resultados br {
+         display: none;
+    }
+     #juego_de_parejas #panel_resultados #resultados {
+         width: 320px;
+         margin: auto;
+    }
+     #juego_de_parejas #panel_resultados #resultados .btn_jugada {
+         display: block;
+         max-width: 150px;
+         margin: auto;
+         margin-bottom: 5px;
+         line-height: unset;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada {
+         width: 320px;
+         margin: auto;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada .inf_jugada {
+         width: auto;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada .inf_jugada label {
+         padding-left: 130px;
+         font-size: 60px;
+         line-height: 20px;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada .inf_jugada p {
+         padding-left: 130px;
+         font-size: 11px;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada .btn_inf {
+         width: 100px;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_01 img {
+         left: -20px;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_02 img {
+         left: -40px;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_03 img {
+         left: -35px;
+         top: -60px;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_04 img {
+         left: -90px;
+         top: -70px;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_05 img {
+         left: -55px;
+         top: -55px;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_06 img {
+         left: -60px;
+         top: -60px;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_07 img {
+         left: -60px;
+         top: -60px;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_08 img {
+         left: -60px;
+         top: -85px;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_09 img {
+         left: -40px;
+         top: -60px;
+    }
+     #juego_de_parejas #panel_resultados #infografia_jugada #inf_jugada_10 img {
+         left: -10px;
+         top: -70px;
+    }    
+}
+
+.texto{
+      font-size: large !important;
+      text-align: justify !important;
+    }
+ 
+</style>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  //LOGICA PRINCIPAL DEL JUEGO
+  /*En caso de añadir una imagen al juego solo es necesario añadir un td en HTML nuevo y la imagen en arrayImagenes*/
+  var contadorPruebas=0;
+  var anterior=null;
+  var imagenElegida;
+  var contadorFallos = 0;
+  var contadorAciertos = 0;
+
+  var arrayImagenes = [
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/001a.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/001b.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/002a.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/002b.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/003a.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/003b.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/004a.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/004b.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/005a.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/005b.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/006a.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/006b.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/007a.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/007b.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/008a.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/008b.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/009a.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/009b.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/010a.png", 
+  "https://raw.githubusercontent.com/iamcamiloperez/Sinectica/main/010b.png"
+];
+
+  // Los valores de este arrglo corresponden a las imagenes que hacen pareja en el arreglo anterior, 
+  // asignandoles el mismo valor a las casillas correspondientes a la pareja de imagenes, con un valor unico para cada pareja
+  var arrayParejas = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10];
+
+  var cantidadImagenes = arrayImagenes.length;
+  var arrayPosiciones = new Array(cantidadImagenes);
+  var arrayPosicionesParejas = new Array(cantidadImagenes);
+
+  $(document).ready(function(){
+      //Crea las posiciones de la array
+      var contadorPosiciones = 0;
+      
+      //VARIABLES CRONOMETRO DE TIEMPO
+      var inicioConteo;
+      var idTimeout;
+      var cronometro = document.querySelector('#tiempo_juego');
+      //botonReiniciar = document.querySelector('#botonReiniciar');
+      var cronometro_active = 0;
+      var fin_juego = 0;
+      
+      while(contadorPosiciones < cantidadImagenes){
+          var imagenPonemos = Math.floor((Math.random()*cantidadImagenes));
+          var contadorPosicionesRepetidas =0;
+
+          //Verifica que la imagen no se haya asignado anteriormente
+          for (var x=0; x<contadorPosiciones; x++){
+              if (arrayPosiciones[x]==imagenPonemos) contadorPosicionesRepetidas++;
+          }
+
+          //Asigna la imagen a la casilla y el valor al arreglo de posiciones de parejas para poder encontrar la solución mas adelante
+          if (contadorPosicionesRepetidas != 1){
+              arrayPosiciones[contadorPosiciones] = imagenPonemos;
+              arrayPosicionesParejas[contadorPosiciones] = arrayParejas[imagenPonemos];
+              contadorPosiciones++;
+          }
+      }
+
+      //Recogemos cuando clique en un td
+
+      $(".casilla").click(function(){
+          
+          //Inicia el cronometro al dar click por primera vez en una casilla
+          if(cronometro_active == 0){
+              cronometro_active++;
+              iniciar();
+          }
+          
+          contadorPruebas++;
+          //Recogemos la casilla
+          var casilla = $(this).attr("id");
+
+          if (contadorPruebas>1){
+              imagenElegida = arrayPosiciones[casilla];
+
+              //Hace la animación entre el fondo plano y la imagen de la segunda casilla seleccionada
+              $("#"+casilla).animate({opacity: "toggle"}, 100);
+              $("#"+casilla).animate({opacity: "toggle"}, 100);
+              window.setTimeout(function(){
+                  $("#"+casilla).css("background-image", "url("+arrayImagenes[imagenElegida]+")").css("background-color", "transparent");
+              },100);
+
+              console.log(arrayPosicionesParejas[anterior] + ":" + arrayPosicionesParejas[casilla]);
+
+              //Comapara con el arreglo de posiciones de parejas si la imagen del deportista conside con el nombre de la jugada, 
+              //si es asi la da por acertada y bloquea las acciones sobre las casillas correspondientes
+              if (arrayPosicionesParejas[casilla]!=arrayPosicionesParejas[anterior]){
+                  contadorFallos++;
+                  $("#fallosN").html(contadorFallos);
+
+                  //No permite clicks en las casillas mientras corre la animación
+                  $(".casilla").css("pointer-events","none");
+
+                  //Cuando las casillas no coinciden corre la animacion de la imagen de regreso al color plano
+                  window.setTimeout(function(){
+                      $("#"+casilla).animate({opacity: "toggle"}, 200);
+                      $("#"+casilla).animate({opacity: "toggle"}, 200);
+                      $("#"+anterior).animate({opacity: "toggle"}, 200);
+                      $("#"+anterior).animate({opacity: "toggle"}, 200);
+                      window.setTimeout(function(){
+                          $("#"+casilla).css("background", "");
+                          $("#"+anterior).css("background", "");
+
+                          //Reactiva el click en las casillas cuando la animación termina
+                          $(".casilla").css("pointer-events","auto");
+                      },200);
+                  },500);
+              }else{ 
+                  contadorAciertos++;
+                  $("#aciertos").html(contadorAciertos);
+
+                  //No permite que se vuelva a activar el click en las casillas que ya han sido acertadas y emparejadas
+                  $("#"+casilla).addClass("acertado");
+                  $("#"+anterior).addClass("acertado");
+              }
+              contadorPruebas = 0;
+          }else{
+              anterior = casilla;
+              imagenElegida = arrayPosiciones[casilla];
+
+              //Hace la animación entre el fondo plano y la imagen de la primera casilla seleccionada
+              $("#"+casilla).animate({opacity: "toggle"}, 100);
+              $("#"+casilla).animate({opacity: "toggle"}, 100);
+              window.setTimeout(function(){
+                  $("#"+casilla).css("background-image", "url("+arrayImagenes[imagenElegida]+")").css("background-color", "transparent");
+              },100);
+              contadorPruebas++;
+
+              //Al ser esta la primera de las dos casillas donde se intenta emparejar, no permite que se de click hasta que se seleccione otra casilla más
+              $(this).css("pointer-events","none");
+          }
+          
+          if(contadorAciertos == 10){
+              console.log("fin");
+              fin_juego++;
+              $(".tiempo_final").html(cronometro);
+              $("#panel_resultados").fadeIn();
+              $("html, body").stop().animate({
+                  scrollTop: $("#juego_de_parejas").offset().top
+              }, 500, 'swing');
+              
+          }
+      });
+
+      //CRONOMETRO DE TIEMPO
+      function zeroIzq(n){
+          return n.toString().replace(/^(\d)$/,'0$1');
+      }
+      function formatoSegundos(s){
+  //        return zeroIzq(Math.floor(s / 3600))+':'+zeroIzq(Math.floor(s%3600 / 60))+':'+zeroIzq(Math.floor((s%3600)%60));
+          return zeroIzq(Math.floor(s%3600 / 60))+':'+zeroIzq(Math.floor((s%3600)%60));
+      }
+      function actualizar(){
+          if(fin_juego == 0){
+              var dif = Date.now() - inicioConteo;
+              dif = Math.round(dif / 1000);
+              cronometro.innerHTML = formatoSegundos(dif);
+              idTimeout = setTimeout(actualizar,1000);
+          }
+      }
+      function iniciar(){
+          clearTimeout(idTimeout);
+          inicioConteo = Date.now();
+          actualizar();
+      }
+      
+      
+      //PANEL DE RESULTADOS
+      $("#btn_reiniciar").click(function(){
+          location.reload(true);
+      });
+      
+      $("#btn_inf_jugada_01").click(function(){
+          $("#resultados").hide();
+          $("#infografia_jugada").show();
+          $(".inf_jugada").hide();
+          $("#inf_jugada_01").show();
+      });
+      
+      $("#btn_inf_jugada_02").click(function(){
+          $("#resultados").hide();
+          $("#infografia_jugada").show();
+          $(".inf_jugada").hide();
+          $("#inf_jugada_02").show();
+      });
+      
+      $("#btn_inf_jugada_03").click(function(){
+          $("#resultados").hide();
+          $("#infografia_jugada").show();
+          $(".inf_jugada").hide();
+          $("#inf_jugada_03").show();
+      });
+      
+      $("#btn_inf_jugada_04").click(function(){
+          $("#resultados").hide();
+          $("#infografia_jugada").show();
+          $(".inf_jugada").hide();
+          $("#inf_jugada_04").show();
+      });
+      
+      $("#btn_inf_jugada_05").click(function(){
+          $("#resultados").hide();
+          $("#infografia_jugada").show();
+          $(".inf_jugada").hide();
+          $("#inf_jugada_05").show();
+      });
+      
+      $("#btn_inf_jugada_06").click(function(){
+          $("#resultados").hide();
+          $("#infografia_jugada").show();
+          $(".inf_jugada").hide();
+          $("#inf_jugada_06").show();
+      });
+      
+      $("#btn_inf_jugada_07").click(function(){
+          $("#resultados").hide();
+          $("#infografia_jugada").show();
+          $(".inf_jugada").hide();
+          $("#inf_jugada_07").show();
+      });
+      
+      $("#btn_inf_jugada_08").click(function(){
+          $("#resultados").hide();
+          $("#infografia_jugada").show();
+          $(".inf_jugada").hide();
+          $("#inf_jugada_08").show();
+      });
+      
+      $("#btn_inf_jugada_09").click(function(){
+          $("#resultados").hide();
+          $("#infografia_jugada").show();
+          $(".inf_jugada").hide();
+          $("#inf_jugada_09").show();
+      });
+      
+      $("#btn_inf_jugada_10").click(function(){
+          $("#resultados").hide();
+          $("#infografia_jugada").show();
+          $(".inf_jugada").hide();
+          $("#inf_jugada_10").show();
+      });
+      
+      $("#btn_volver").click(function(){
+          $("#infografia_jugada").hide();
+          $("#resultados").show();
+      });
+
+      $("#juego_de_parejas .flecha").click(function(){
+          $("#juego_de_parejas .preguntas").stop().animate({
+              scrollTop: $("#juego_de_parejas .preguntas").scrollTop() + 100
+          }, 500, 'swing');
+      });
+      
+      
+      //COMPARTIR RESULTADOS EN REDES
+      
+
+      window.fbAsyncInit = function() {
+          FB.init({
+            appId            : '1928749157200161',
+            autoLogAppEvents : true,
+            xfbml            : true,
+            version          : 'v2.12'
+          });
+      };
+
+      (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+
+      $("#btn_compartir_facebook").click(function(){
+          var tiempo_juego;
+          tiempo_juego = document.getElementById("tiempo_final").textContent;
+          FB.ui({
+              method: 'share',
+              href: 'http://beta.eltiempo.com/deportes/las-10-mejores-jugadas-159307',
+              quote:'Estas son las 10 mejores jugadas del Fútbol, mi tiempo fue de '+tiempo_juego+' http://www.eltiempo.com/deportes/futbol-internacional/especial-las-10-mejores-jugadas-futbol-196998',
+          }, function(response){});
+      });
+      
+      $("#btn_compartir_twitter").click(function(){
+          var tiempo_juego;
+          tiempo_juego = document.getElementById("tiempo_final").textContent;
+          var url='http://twitter.com/home?status=Mi%20tiempo%20fue%20de%20'+tiempo_juego+'%20http://www.eltiempo.com/deportes/futbol-internacional/especial-las-10-mejores-jugadas-futbol-196998'; 
+          window.open(url,'ventanacompartir', 'toolbar=0, status=0, width=650, height=450');
+      });
+  });
+  </script>
+<div id="juego_de_parejas">
+  <div id="contenedor_juego">
+    <h1 style="text-align: center;">
+      Sintáctica en la Ingeniería de software
+    </h1>
+
+    <div>
+      <p class="texto">
+        La Sinéctica, propuesta como método por William Gordon, tiene como objetivo potenciar la analítica para desarrollar ideas, plantear soluciones y entender problemas a través de la separación entre el sujeto y el problema con un resultado innovador. 
+
+Esta técnica se basa en la premisa de que el cerebro es un almacén donde se guarda una inmensa cantidad de datos, experiencias y conocimientos que pueden filtrarse y relacionarse bajo un contexto específico ocasionando relaciones o conexiones entre elementos con diferentes características, entornos y posibilidades que lleven a la generación de ideas novedosas.
+
+La sinéctica se centra como tal en la creatividad, sirviendo como base para el desarrollo de ideas que conlleven a crear o desarrollar productos completamente nuevos a partir de algo ya conocido en cierto nivel. Es interesante analizar el origen del vocablo Semántica, el cual viene del griego “synectikos” que significa “Unión de elementos distintos y aparentemente irrelevantes”; Esto nos lleva a pensar que podemos llegar a tomar elementos de un entorno que pueden o no estar relacionados y a partir de ello definir un nuevo elemento que cumpla con una característica especial. 
+
+Uno de los usos de mayor aplicación de la Sintáctica es la resolución de problemas, donde se busca encontrar la relación que puede existir entre los diferentes compuestos para llegar a encontrar una solución clara y que cumpla con un nivel de creatividad y adaptación aceptable de determinada situación o evento.Su aplicación se extiende al ambito empresarial, científico e ingenieril entre muchos otros.
+
+En el ámbito de la ingeniería de software, al ser un campo donde es muy frecuente el planteamiento de problemas de diferentes tipos y la necesidad de aplicación de elementos existentes a soluciones modernas, escalables y bien estructuradas. La aplicación de la Sinéctica se convierte en una herramienta de alto impacto, que facilita el desarrollo de la innovación y resolución de problemas. 
+
+En este texto se intenta crear un paralelo entre la Sinéctica y sus principios y el impacto que tiene Ingeniería de Software como campo específico:
+
+La sinéctica funciona tanto como teoría que como método para el aumento del éxito en los proceso creativos  de nuevas ideas de negocio, desarrollo de soluciones, análisis de problemas, entre otros elementos.
+</p>
+
+<h2>
+  <strong>
+    Principios de la Sinéctica
+  </strong>
+</h2>
+
+<h3>
+  <strong>
+    1. Potencia creativa
+  </strong>
+</h3>
+
+<p class="texto">
+Si las personas logran comprender cómo trabaja su mente en el proceso creativo, pueden hacer un mayor uso de su potencialidad creativa y sacar el mejor provecho de esta.
+
+En la ingeniería de software resalta la innovación tanto para la solución de problemas, como para la satisfacción de necesidades e históricamente han sido más exitosos los sistemas creados bajo un entorno de creatividad, ya que estos logran que el análisis de los requerimientos están basados en experiencias. Un claro ejemplo de esto fue el desarrollo tecnológico propiciado por Steve Jobs al querer buscar una experiencia de usuario superior a partir de lo que ya se conocía y logrando obtener a partir de elementos ya conocidos una integración que derivó en el éxito de su compañía. 
+
+</p>
+
+<h3>
+  <strong>
+    2. Elemento emocional
+  </strong>
+  </h3>
+
+  <p class="texto">
+    Es preciso que las personas entiendan que en el proceso creativo el elemento emocional es más importante que el intelectual, y el irracional más importante que el racional.
+    
+    Actualmente la arquitectura de software se encuentra en un nivel bastante avanzado, al punto que permite el desarrollo de sistemas complejos de maneras muy ágiles y bien estructuradas. A pesar de lo anterior, los usuarios finales contemporáneos no centran sus opiniones o elecciones en estas estructuras ordenadas que ya se dan por hecho; al contrario se centran más en la experiencia que puedan vivir a nivel emocional e irracional. 
+    
+    La ingeniería de software tiene el reto actual de realizar construcciones no solo funcionales, sino que den a los usuarios una verdadera experiencia de uso que cumpla con sus expectativas. 
+
+    Un claro ejemplo de este principio se puede ver en la industria de los videojuegos, la cual es una de las que mayor demanda tienen en el mundo de la tecnología. A pesar del esfuerzo de muchas compañías como microsoft, playstation o supercell para desarrollar productos con un nivel de gráficas y procesamiento super avanzado, los juegos más vendidos del último año son 2 cuyas gráficas no tienen un gran trabajo, pero que por otro lado llegan a involucrar emocionalmente a los jugadores brindándoles una experiencia de usuario llamativa y cautivadora. Este es el caso de AmongUs y Fall Guys.
+
+  </p>    
+
+<h3>
+  <strong>
+    3. Componentes emocionales e irracionales
+  </strong>
+  </h3>
+
+  <p class="texto">    
+Se debe tener claro que, si se quiere aumentar las posibilidades de éxito en el proceso creativo de la sinéctica, es preciso que sean comprendidos los componentes emocionales e irracionales.
+  </p>
+<br>
+<p class="texto">    
+Como ya se ha venido relatando, es necesario entender las necesidades del usuario más allá del ámbito lógico y funcional, ya que actualmente se dá por sentado que los requerimientos se van a cumplir de manera oportuna. Sin embargo, lo que busca un usuario no se limita a lo que está pidiendo y es necesario empezar a analizar otros factores como los elementos del entorno, experiencias previas, cotidianidad, entre otros a la hora de realizar un levantamiento de requerimientos. 
+Como se puede apreciar en el análisis propuesto, la sinéctica plantea que es obligatorio asumir nuevas perspectivas y riesgos. lo cual no está muy alejado de los nuevos retos de la Ingeniería de Software. Es necesario salirse un poco de lo predecible y entrar en un entorno creativo y basado en la experiencia para así lograr transformar el mundo conocido en algo diferente y ajeno pero con muchas bondades así como construir sistemas completos con los que el usuario se sienta realmente conectado.
+
+      </p>
+    </div>
+
+
+    <hr>
+    <div>
+      <p class="texto">A continuación se plantea un pequeño juego, en el que se usa una dinámica muy sencilla pero entretenida para relacionar los conceptos de la Sintáctica con la ingeniería de software. El objetivo es que se logren relacionar los conceptos con ejemplos planteados y definiciones dadas en el mismo documento con el ánimo de presentar un planteamiento creativo para el entendimiento del tema. 
+
+        El reto no solo es un bajo tiempo, sino analizar los conceptos para encontrar las relaciones correctas. 
+      </p>
+      <br>
+      <br>
+      <hr>
+      <br>
+      <br>
+      <strong>
+        <label id="tiempo_juego" style="text-align: center; margin-top: 20px; font-size: xx-large;">00:00 </label><span>Tiempo</span>
+      </strong>
+    </div>
+    <div id="tablero_juego">
+      <div class="casilla" id="0"></div>
+      <div class="casilla" id="1"></div>
+      <div class="casilla" id="2"></div>
+      <div class="casilla" id="3"></div>
+      <div class="casilla" id="4"></div>
+      <div class="casilla" id="5"></div>
+      <div class="casilla" id="6"></div>
+      <div class="casilla" id="7"></div>
+      <div class="casilla" id="8"></div>
+      <div class="casilla" id="9"></div>
+      <div class="casilla" id="10"></div>
+      <div class="casilla" id="11"></div>
+      <div class="casilla" id="12"></div>
+      <div class="casilla" id="13"></div>
+      <div class="casilla" id="14"></div>
+      <div class="casilla" id="15"></div>
+      <div class="casilla" id="16"></div>
+      <div class="casilla" id="17"></div>
+      <div class="casilla" id="18"></div>
+      <div class="casilla" id="19"></div>
+    </div>
+  </div>
+  <div id="panel_resultados">
+    <div id="resultados">
+      <label class="label_tiempo">Tiempo:</label><br/><span class="tiempo_final">-- seg</span>
+      <hr/>
+      <div><p class="flecha">&downarrow;</p></div>
+      <hr/><br/><br/><span id="btn_reiniciar">Reiniciar</span>
+    </div>
+  </div>
+</div>
