@@ -1,0 +1,2 @@
+# Sinectica
+Sinectica proyecto
